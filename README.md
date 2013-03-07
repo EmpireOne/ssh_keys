@@ -15,4 +15,4 @@ setup.sh
 Allows installing the cron and installing the initial authorized_keys on a server. 
 Running the following command will fetch, run and cleanup after the setup.
 
-	curl -L --write-out %{http_code} http://bit.ly/XVjtk4 --output ~/setup.sh 2> /dev/null | grep 200 > /dev/null && bash ~/setup.sh && rm ~/setup.sh > /dev/null 2>&1
+	curl --write-out %{http_code} https://raw.github.com/EmpireOne/ssh_keys/master/setup.sh --output ~/setup.sh 2> /dev/null | grep 200 > /dev/null && bash ~/setup.sh && rm ~/setup.sh > /dev/null 2>&1
