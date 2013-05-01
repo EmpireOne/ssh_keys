@@ -15,4 +15,5 @@ Allows installing the cron and installing the initial authorized_keys on a serve
 Running the following command will fetch, run and cleanup after the setup. Once completed
 `crontab -l` should show a new line..
 
-	curl --write-out %{http_code} https://raw.github.com/EmpireOne/ssh_keys/master/setup.sh --output ~/setup.sh 2> /dev/null | grep 200 > /dev/null && bash ~/setup.sh && rm ~/setup.sh > /dev/null 2>&1
+	env=dev
+	curl --write-out %{http_code} https://raw.github.com/EmpireOne/ssh_keys/master/setup.sh --output ~/setup.sh 2> /dev/null | grep 200 > /dev/null && bash ~/setup.sh $env && rm ~/setup.sh > /dev/null 2>&1
