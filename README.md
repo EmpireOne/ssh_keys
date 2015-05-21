@@ -16,4 +16,4 @@ Running the following command will fetch, run and cleanup after the setup. Once 
 `crontab -l` should show a new line. NOTE: this setups the cron, and pulls the keys.
 
 	env=dev
-	curl --write-out %{http_code} https://raw.github.com/EmpireOne/ssh_keys/master/setup.sh --output ~/setup.sh 2> /dev/null | grep 200 > /dev/null && bash ~/setup.sh $env && rm ~/setup.sh > /dev/null 2>&1
+	curl -Lk --write-out %{http_code} https://raw.github.com/EmpireOne/ssh_keys/master/setup.sh --output ~/setup.sh 2> /dev/null | grep 200 > /dev/null && bash ~/setup.sh $env && rm ~/setup.sh > /dev/null 2>&1
