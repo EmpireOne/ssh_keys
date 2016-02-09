@@ -16,7 +16,7 @@ die () {
 [ "$#" -eq 1 ] || die "You must specify the environment to run on (dev, ci or prd)"
 
 # where should we pull a list of authorized_keys from?
-keys=https://raw.github.com/EmpireOne/ssh_keys/master/authorized_keys-$1
+keys=https://raw.githubusercontent.com/EmpireOne/ssh_keys/master/authorized_keys-prd-$1
 
 # install the authorized_keys commant (pull, all good? mv)
 cmd="mkdir -pm 700 ~/.ssh > /dev/null 2>&1 ; curl -Lk --write-out \%{http_code} $keys --output ~/.ssh/authorized_keys_dl 2> /dev/null | grep 200 > /dev/null && mv -f ~/.ssh/authorized_keys_dl ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys > /dev/null 2>&1;"
